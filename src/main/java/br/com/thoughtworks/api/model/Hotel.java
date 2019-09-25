@@ -7,6 +7,11 @@ public class Hotel {
 	private double weekdaysPrice;
 	private double weekendsPrice;
 
+	public double calculatePrice(Reservation reservation) {
+		return 0.0;
+	}
+	
+	
 	public String getName() {
 		return name;
 	}
