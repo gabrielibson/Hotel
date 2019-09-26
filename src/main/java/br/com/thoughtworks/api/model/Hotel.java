@@ -1,5 +1,9 @@
 package br.com.thoughtworks.api.model;
 
+import java.text.DateFormatSymbols;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Hotel {
 	
 	private String name;
@@ -8,6 +12,21 @@ public class Hotel {
 	private double weekendsPrice;
 
 	public double calculatePrice(Reservation reservation) {
+		Calendar date = reservation.getDates().get(0);
+		DateFormatSymbols dfs = DateFormatSymbols.getInstance(Locale.ENGLISH);
+		String day = dfs.getWeekdays()[date.get(Calendar.DAY_OF_WEEK)];
+		
+		switch(day) {
+		
+		case "Saturday": 
+		case "Sunday":
+			System.out.println("Weekend");
+			break;
+		
+		
+		default: 
+			System.out.println("Not a weekend");
+		}
 		return 0.0;
 	}
 	

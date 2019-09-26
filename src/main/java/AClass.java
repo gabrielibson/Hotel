@@ -16,16 +16,19 @@ public class AClass {
 		List<Calendar> dates = new ArrayList<>();
 		Calendar date = Calendar.getInstance();
 		
-		date.set(2009, 2, 16);
+		date.set(2019, 8, 21);
 		dates.add(date);
 		
 		reservation.setClientType("Regular");
 		reservation.setDates(dates);
 		
-		ReservationService reservationService = new ReservationService();
+		/*ReservationService reservationService = new ReservationService();
 		
 		String bestHotel = reservationService.chooseBestHotelByReservation(reservation, hotels);
-		System.out.println(bestHotel);
+		System.out.println(bestHotel);*/
+		Hotel hotel = new Hotel();
+		hotel.calculatePrice(reservation);
+		System.out.println(date.getTime().toString());
 		
 	}
 	
