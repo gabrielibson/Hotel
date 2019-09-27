@@ -1,34 +1,15 @@
 package br.com.thoughtworks.api.model;
 
-import java.text.DateFormatSymbols;
-import java.util.Calendar;
-import java.util.Locale;
-
-public class Hotel {
+public abstract class Hotel{
 	
 	private String name;
 	private int classification;
-	private double weekdaysPrice;
-	private double weekendsPrice;
-
-	public double calculatePrice(Reservation reservation) {
-		Calendar date = reservation.getDates().get(0);
-		DateFormatSymbols dfs = DateFormatSymbols.getInstance(Locale.ENGLISH);
-		String day = dfs.getWeekdays()[date.get(Calendar.DAY_OF_WEEK)];
-		
-		switch(day) {
-		
-		case "Saturday": 
-		case "Sunday":
-			System.out.println("Weekend");
-			break;
-		
-		
-		default: 
-			System.out.println("Not a weekend");
-		}
-		return 0.0;
-	}
+	private double weekdaysRegularPrice;
+	private double weekendsRegularPrice;
+	private double weekdaysRewardPrice;
+	private double weekendsRewardPrice;
+	
+	public abstract double calculatePrice(Reservation reservation);
 	
 	
 	public String getName() {
@@ -47,19 +28,42 @@ public class Hotel {
 		this.classification = classification;
 	}
 
-	public double getWeekdaysPrice() {
-		return weekdaysPrice;
+	public double getWeekdaysRegularPrice() {
+		return weekdaysRegularPrice;
 	}
 
-	public void setWeekdaysPrice(double weekdaysPrice) {
-		this.weekdaysPrice = weekdaysPrice;
+
+	public void setWeekdaysRegularPrice(double weekdaysRegularPrice) {
+		this.weekdaysRegularPrice = weekdaysRegularPrice;
 	}
 
-	public double getWeekendsPrice() {
-		return weekendsPrice;
+
+	public double getWeekendsRegularPrice() {
+		return weekendsRegularPrice;
 	}
 
-	public void setWeekendsPrice(double weekendsPrice) {
-		this.weekendsPrice = weekendsPrice;
+
+	public void setWeekendsRegularPrice(double weekendsRegularPrice) {
+		this.weekendsRegularPrice = weekendsRegularPrice;
+	}
+
+
+	public double getWeekdaysRewardPrice() {
+		return weekdaysRewardPrice;
+	}
+
+
+	public void setWeekdaysRewardPrice(double weekdaysRewardPrice) {
+		this.weekdaysRewardPrice = weekdaysRewardPrice;
+	}
+
+
+	public double getWeekendsRewardPrice() {
+		return weekendsRewardPrice;
+	}
+
+
+	public void setWeekendsRewardPrice(double weekendsRewardPrice) {
+		this.weekendsRewardPrice = weekendsRewardPrice;
 	}
 }
