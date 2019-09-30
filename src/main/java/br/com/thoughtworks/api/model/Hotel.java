@@ -11,7 +11,6 @@ public abstract class Hotel{
 	
 	public abstract double calculatePrice(Reservation reservation);
 	
-	
 	public String getName() {
 		return name;
 	}

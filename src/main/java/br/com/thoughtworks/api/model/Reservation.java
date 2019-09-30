@@ -18,9 +18,8 @@ public class Reservation implements IDateHelper{
 	private List<Calendar> dates;
 
 	public double calculateFinalPrice(double priceWeekdays, double priceWeekends) {
-		String day;
-		double price = 0.0;
-		
+		String day = "";
+		double price = 0.0;		
 		for(Calendar date : this.getDates()) {
 			//Method implemented by default method of IDateHelper
 			day = getDayByDate(date);
